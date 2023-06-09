@@ -28,7 +28,7 @@ The summation from 1 to \(n\) can be represented as:
 \]
 
 This represents the sum of all natural numbers from 1 to \(n\).
-
+\(\sum_{i=1}^{n} i\)
 
 ## Example
 
