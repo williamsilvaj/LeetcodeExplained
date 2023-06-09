@@ -35,28 +35,29 @@ Output: [0,1]
 ```
 
 ## Solution Approach
+
 ### Quick explanation:
 
-For each number `nums_i` search for it's complement, `complement = nums_i - target`. To overcome the search in the $n-1$ remaining elements we can use a hashtable to map all values and after that search in $O(1)$.
+For each number `nums_i`, search for its complement, `complement = target - nums_i`. To overcome the search in the $n-1$ remaining elements, we can use a hashtable to map all values and then search in $O(1)$.
 
 ### Detailed explanation:
 
-We are given an array $nums$ containing $n$ numbers and a target numbers, such that `nums[i] + nums[j] = target` and we need to return $i$ and $j$. 
+We are given an array `nums` containing `n` numbers and a target number, such that `nums[i] + nums[j] = target`, and we need to return `i` and `j`.
 
-It's pretty importante to notice that we need to return the **indices** and not the value itselt, it's a crucial information since if we sort, we would end up with a wrong indices answer. 
+It's important to notice that we need to return the **indices** and not the value itself. This is a crucial information because if we sort the array, we would end up with incorrect indices as an answer.
 
 #### Intuition
 
-We can solve that problem by for each `nums_i` element we search for the numbers that summed to $nums_i$ is equal to $target$, since we are looking for two numbers that sum up to the target. The number we need to search for is the complement: 
+We can solve this problem by searching for the number that, when added to `nums_i`, result in `target`. In other words, we are looking for two numbers that sum up to the target. The number we need to search for is called the complement:
 
 `nums_i + complement = target`
-`complement = nums_i - target`
+`complement = target - nums_i`
 
-Since we fixed the `nums_i` we can search for the `complement` in the $n-1$ elements. But notice, if we do it for each number we would end up in a quadratic algorithm since for each element we would need to perform a linear serch in the $n-1$ remaining elements. 
+For each number `nums_i`, search for its complement in the remaining $n-1$ elements. However, if we perform this search for each element, we would end up with a quadratic algorithm because we would need to perform a linear search for each element in the remaining `n-1` elements.
 
-Now that we undestand the problem, we can see that the main problem is that at each iteration we need to perform a linear search, how can we overcome that problem? Is there a better way to search that is not $O(n)? Yes! Hashtables! 
+Now that we understand the problem, we can see that the main issue is that we need to perform a linear search at each iteration. How can we overcome this problem? Is there a better way to search that is not $O(n)$? Yes, there is! We can use hashtables!
 
-We can map all elements `(key, value) -> (nums[j], j)` and for each `nums_i` we can look up if the complement exists in $O(1)$.
+We can create a mapping of all elements `(key, value) -> (nums[j], j)`, and for each `nums_i`, we can look up whether the complement exists in `O(1)`, if the answer is *yes* then we return $i$ and $j$; otherwise we can return $[-1,-1]$ to indicate that no such elements exist.
 
 ## Algorithm in Pseudocode
 
