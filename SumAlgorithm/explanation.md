@@ -76,10 +76,12 @@ return sum
 ```
 ## Algorithm Complexity Analysis
 ### Time Complexity
+In our implementation we have two loops, each loop performs only a constant amount of operations like, comparisons, attribuitions, etc. 
 
-The time complexity of this solution is O(n), where n is the number of elements in the array. This is because we need to iterate through each element once to calculate the sum.
+Let's call the basic operations of the first loop $c_1$ and for the later loop $c_2$ 
 
-$$T(n) = c_1 + \sum_{i=3}^{n} c_2 = c_1 + \sum_{i=1}^{n-2} c_2 = c_1 + (n-2)c_2 = O(n)$$
+$$T(n) =\sum{i=1}^n c_1 + \sum{i=1}^n c_2 = nc_1 + nc_2 = (c_1 + c_2)n = O(n)$$
+
 
 ### Space Complexity
 
@@ -93,61 +95,45 @@ $S(n) = O(n)$
 
 ## Implementation of the Algorithm
 ```java
+import java.util.HashMap;
+import java.util.Map;
 
-public class DutchFlag {
+public class TwoSum {
+    public int[] twoSum(int[] nums, int target) {
+        // Create a hashmap to store the mapping of values to indices
+        Map<Integer, Integer> map = new HashMap<>();
 
-	public static void main(String[] args) {
+        // Iterate through the array and map the elements
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
 
-		int[] A = { 2,0,1,0};
+        // Iterate through the array and search for the complement
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
 
-		dutchFlagProblem(A);
+            // Check if the complement exists in the map and it's not the same element
+            if (map.containsKey(complement) && map.get(complement) != i) {
+                // Return the indices
+                return new int[]{i, map.get(complement)};
+            }
+        }
 
-		for (int e : A) {
-			System.out.print(e + " ");
-		}
+        // If no solution is found, return [-1, -1]
+        return new int[]{-1, -1};
+    }
 
-	}
+    public static void main(String[] args) {
+        TwoSum solution = new TwoSum();
 
-	public static void dutchFlagProblem(int[] A) {
+        // Example usage
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = solution.twoSum(nums, target);
 
-		int low = 0;
-		int mid = 0;
-		int high = A.length - 1;
-
-		while (mid < high) {
-
-			while (A[low] == 0) {
-				low++;
-				mid++;
-			}
-
-			while (A[mid] == 1) {
-				mid++;
-			}
-
-			while (A[high] == 2) {
-				high--;
-			}
-
-			if (mid <= high) {
-
-				if (A[mid] == 0) {
-					swap(A, low, mid);
-				} else {
-					swap(A, mid, high);
-				}
-
-			}
-
-		}
-
-	}
-
-	private static void swap(int[] A, int i, int j) {
-		int temp = A[i];
-		A[i] = A[j];
-		A[j] = temp;
-	}
-
+        System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
+    }
 }
+
+
 ```
