@@ -1,6 +1,8 @@
 # Problem 1: Two Sum
 - [Problem Description]($problem-description)
 - [Solution Approach](#solution-approach)
+    - [Quick explanation](#quick-explanation)
+    - [Detailed explanation](#detailed-explanation) 
 - [Algorithm in Pseudocode](#algorithm-in-pseudocode)
 - [Algorithm Complexity Analysis](#algorithm-complexityanalysis)
     - [Time Complexity](#time-complexity)
