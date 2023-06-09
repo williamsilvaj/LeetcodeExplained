@@ -42,7 +42,7 @@ For each number `nums_i`, search for its complement, `complement = target - nums
 
 ### Detailed explanation:
 
-We are given an array `nums` containing `n` numbers and a target number, such that `nums[i] + nums[j] = target`, and we need to return `i` and `j`.
+We are given an array `nums` containing $n$ numbers and a target number, such that `nums[i] + nums[j] = target`, and we need to return $i$ and $j$.
 
 It's important to notice that we need to return the **indices** and not the value itself. This is a crucial information because if we sort the array, we would end up with incorrect indices as an answer.
 
@@ -53,11 +53,11 @@ We can solve this problem by searching for the number that, when added to `nums_
 `nums_i + complement = target`
 `complement = target - nums_i`
 
-For each number `nums_i`, search for its complement in the remaining $n-1$ elements. However, if we perform this search for each element, we would end up with a quadratic algorithm because we would need to perform a linear search for each element in the remaining `n-1` elements.
+For each number `nums_i`, search for its complement in the remaining $n-1$ elements. However, if we perform this search for each element, we would end up with a quadratic algorithm because we would need to perform a linear search for each element in the remaining $n-1$ elements.
 
 Now that we understand the problem, we can see that the main issue is that we need to perform a linear search at each iteration. How can we overcome this problem? Is there a better way to search that is not $O(n)$? Yes, there is! We can use hashtables!
 
-We can create a mapping of all elements `(key, value) -> (nums[j], j)`, and for each `nums_i`, we can look up whether the complement exists in `O(1)`, if the answer is *yes* then we return $i$ and $j$; otherwise we can return $[-1,-1]$ to indicate that no such elements exist.
+We can create a mapping of all elements `(key, value) -> (nums[j], j)`, and for each `nums_i`, we can look up whether the complement exists in $O(1)$, if the answer is *yes* then we return $i$ and $j$; otherwise we can return $[-1,-1]$ to indicate that no such elements exist.
 
 ## Algorithm in Pseudocode
 
