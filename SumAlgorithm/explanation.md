@@ -2,6 +2,10 @@
 
 ## Problem Description
 
+$T(n) = c_1 + \sum_{i=3}^{n} c_2 = c_1 + \sum_{i=1}^{n-2} c_2 = c_1 + (n-2)c_2 = O(n)$
+
+
+$\frac{1}{23}$
 Given an array of integers, calculate the sum of all numbers in the array.
 
 ## Approach
@@ -30,7 +34,6 @@ $
 This represents the sum of all natural numbers from 1 to \(n\).
 \(\sum_{i=1}^{n} i\)
 
-$\sum_{i=1}^n a_i$
 
 ## Example
 
