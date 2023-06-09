@@ -47,35 +47,6 @@ Input Space: space taken by the input
 $S(n) = O(n)$
 
 ## Implementation of the Algorithm
-
-```python
-def sum_of_numbers(nums):
-    """
-    Calculate the sum of all numbers in the array.
-
-    Parameters:
-        nums (List[int]): The array of numbers.
-
-    Returns:
-        int: The sum of all numbers in the array.
-    """
-    return sum(nums)
-```
-
-
-Note the pseucode start from 1 and not 0. 
-```plaintext
-Algorithm summation(nums, n):
-input: array `nums` containing all numbers and the size of the array `n`
-ouput: the sum of all numbers in `nums`
-
-sum := 0
-for i = 1 until n do
-    sum := sum + nums[i]
-
-return sum
-```
-
 ```java
 
 public class DutchFlag {
