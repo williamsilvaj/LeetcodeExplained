@@ -30,7 +30,7 @@ for i = 1 until n do # Iterate from 1 to n (inclusive)
 
 return sum
 ```
-
+## Algorithm Complexity Analysis
 ### Time Complexity
 
 The time complexity of this solution is O(n), where n is the number of elements in the array. This is because we need to iterate through each element once to calculate the sum.
