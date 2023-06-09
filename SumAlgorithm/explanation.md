@@ -6,7 +6,7 @@ Given an array of integers, calculate the sum of all numbers in the array.
 
 ## Approach
 
-To find the sum of all numbers in the array, we can use the built-in `sum()` function in Python. It takes an iterable as input and returns the sum of all elements in that iterable.
+To find the sum of all numbers in the array, we can use the built-in `sum()` function in Python. It takes an iterable as input and returns the sum of all elements in that iterable. O(nlogn)
 
 ## Algorithm
 
