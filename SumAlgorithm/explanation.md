@@ -64,34 +64,27 @@ We can create a mapping of all elements `(key, value) -> (nums[j], j)`, and for 
 Note: The following pseudocode represents an algorithmic solution. Please note that, in this pseudocode, array indices and loop iterations are 1-based unless otherwise specified.
 
 ```plaintext
-Algorithm summation(nums, n):
-input: array `nums` containing all numbers and the size of the array `n`
-ouput: the sum of all numbers in `nums`
-
-sum := 0
-for i = 1 until n do # Iterate from 1 to n (inclusive)
-    sum := sum + nums[i]
-
-return sum
 ```
 ## Algorithm Complexity Analysis
 ### Time Complexity
-In our implementation we have two loops, each loop performs only a constant amount of operations like, comparisons, attribuitions, etc. 
+In our implementation, we have two loops, and each loop performs a constant number of operations such as comparisons, assignments, etc.
 
-Let's call the basic operations of the first loop $c_1$ and for the later loop $c_2$ 
-
+Let's denote the basic operations of the first loop as $c_1$ and the operations of the second loop as $c_2$.
 $$T(n) =\sum{i=1}^n c_1 + \sum{i=1}^n c_2 = nc_1 + nc_2 = (c_1 + c_2)n = O(n)$$
 
-
+This means that the time complexity of the algorithm is linear, denoted as $O(n)$, where $n$ represents the size of the input array.
 ### Space Complexity
+The space complexity of an algorithm or a computer program is the amount of memory space required to solve an instance of the computational problem as a function of characteristics of the input. This includes the memory space used by its inputs, called **input space**, and any other (auxiliary) memory it uses during execution, which is called **auxiliary space**. 
 
-Space complexity = input space + auxiliary space
+Space complexity = Input space + Auxiliary space
+Input space = O(n)
+Auxiliary space: hashtable + constant time = O(n) + O(1) 
 
-Auxiliary Space: the extra space that is taken by an algorithm temporarily to finish its work
-
-Input Space: space taken by the input 
+$S(n) = O(n) + O(1)$
 
 $S(n) = O(n)$
+
+This means that the space complexity of the algorithm is linear, denoted as $O(n)$, where $n$ represents the size of the input array.
 
 ## Implementation of the Algorithm
 ```java
@@ -134,6 +127,5 @@ public class TwoSum {
         System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
     }
 }
-
 
 ```
