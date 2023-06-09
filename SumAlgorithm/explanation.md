@@ -22,11 +22,11 @@ The time complexity of this solution is O(n), where n is the number of elements 
 $T(n) = O(nlogn) + O(n) = O(nlogn)$
 
 The summation from 1 to \(n\) can be represented as:
-
+$
 \[
 \sum_{i=1}^{n} i
 \]
-
+$
 This represents the sum of all natural numbers from 1 to \(n\).
 \(\sum_{i=1}^{n} i\)
 
