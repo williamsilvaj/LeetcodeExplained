@@ -1,96 +1,62 @@
 \documentclass{article}
 
-% Pacotes
-\usepackage{fancyvrb}
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage{float}
-\usepackage{graphicx}
-
-
-% Configurações do pacote listings
-\lstset{
-    basicstyle=\ttfamily,
-    keywordstyle=\color{blue},
-    stringstyle=\color{red},
-    commentstyle=\color{green!70!black},
-    numbers=left,
-    numberstyle=\tiny\color{gray},
-    numbersep=5pt,
-    frame=single,
-    framesep=5pt,
-    xleftmargin=10pt,
-    xrightmargin=10pt,
-    breaklines=true,
-    breakatwhitespace=true,
-    mathescape
-}
-
-% Configurações de cores
-\definecolor{mygray}{rgb}{0.95,0.95,0.95}
-
-% Configurações de float
-\floatstyle{plaintop}
-\restylefloat{table}
-
-% Título
-\title{Projeto e Análise de Algoritmos}
-\author{William Santos Silva, Matrícula: 202000013236}
+\title{Sum of All Numbers in an Array - Algorithm Explanation}
+\author{Your Name}
 \date{}
 
 \begin{document}
+
 \maketitle
 
-\section*{Questão 1}
+\section*{Problem Description}
 
+Given an array of integers, we want to calculate the sum of all numbers in the array.
 
-\subsection*{(a) Explique sua ideia de solução}
+\section*{Algorithm}
 
-\textbf{Two Sum problem}
-Given a sequence $S$ containing $N$ real numbers and a real number $Z$, return two numbers $S_i$ and $S_j$, $i \neq$  j, such that $S_i + S_j = Z$.
+To solve this problem, we can use a simple iterative approach. Here is the algorithm:
 
-To solve this problem we can first sort $S$ and keep track of two pointers, left ($L$) and right ($R$), these pointers will represent the boundaries of of array $S$. 
+\begin{enumerate}
+  \item Initialize a variable \texttt{total} to 0.
+  \item Iterate through each element \texttt{num} in the array.
+  \item Add \texttt{num} to \texttt{total}.
+  \item Return the value of \texttt{total}.
+\end{enumerate}
 
-After sort we can assign our pointers $L = 1$ and $R = N$
+\section*{Pseudocode}
 
-We can start now summing $S_L + S_R$,  if $S_L + S_R = Z$ then we have found our answer and we return $S_L + S_R$; otherwise we are left with two cases, $S_L + S_R > Z$ and $S_L + S_R < Z$.
+Here is the pseudocode representation of the algorithm:
 
-If $S_L + S_R > Z$ that means we must find for smaller values to have a chance to find a match to $Z$, since we want to find a smaller value, we must update $R:=R - 1$
+\begin{verbatim}
+function sumOfNumbers(array):
+    total = 0
+    for num in array:
+        total += num
+    return total
+\end{verbatim}
 
-If $S_L + S_R < Z$ that means we must find greater values to sum, then we move the left pointer, $L := L + 1$
+\section*{Example}
 
-\subsection*{(b) Elabore um algoritmo em pseudo-linguagem}
+Let's consider an example array:
 
-\begin{lstlisting}
-Algorithm twoSum(S, n, Z)
-Input: an array S of size n and a real number Z
-output: all pair of values of S that sum to Z
+\[
+\text{{array}} = [1, 2, 3, 4, 5]
+\]
 
-Let \textbf{result} be an array that at each cell stores two values, x and y
+Using the algorithm, we calculate the sum as follows:
 
-heapsort(S)
+\[
+1 + 2 + 3 + 4 + 5 = 15
+\]
 
-L := 1
-R := n
-while (L < R) do
-    if (S[L] + S[R] = Z) then
-        result.x := S[L]
-        result.y := S[R]
-        R := R - 1
-        L := L + 1
+Therefore, for the given array, the sum of all numbers is 15.
 
-    if (S[L] + S[R] > Z) then
-        R := R - 1
-    else    
-        L := L + 1
+\section*{Time Complexity}
 
-return result;
-\end{lstlisting}
+The time complexity of this algorithm is \(O(n)\), where \(n\) is the number of elements in the array. This is because we need to iterate through each element once to calculate the sum.
 
-\subsection*{(c) Calcule a complexidade de pior caso do algoritmo}
+\section*{Conclusion}
 
-$T(n) = O(nlogn) + O(n) = O(nlogn)$
-
-
+The algorithm provides a simple and efficient way to calculate the sum of all numbers in an array. By following the iterative approach, we can achieve linear time complexity. This algorithm can be useful in various applications where the sum of array elements is required.
 
 \end{document}
