@@ -70,7 +70,7 @@ Note: The following pseudocode represents an algorithmic solution. Please note t
 In our implementation, we have two loops, and each loop performs a constant number of operations such as comparisons, assignments, etc.
 
 Let's denote the basic operations of the first loop as $c_1$ and the operations of the second loop as $c_2$.
-$$T(n) =\sum{i=1}^{n} c_1 + \sum{i=1}^{n} c_2 = nc_1 + nc_2 = (c_1 + c_2)n = O(n)$$
+$$T(n) = \sum_{i=1}^{n} c_1 + \sum_{i=1}^{n} c_2 = nc_1 + nc_2 = (c_1 + c_2)n = O(n)$$
 
 This means that the time complexity of the algorithm is linear, denoted as $O(n)$, where $n$ represents the size of the input array.
 ### Space Complexity
