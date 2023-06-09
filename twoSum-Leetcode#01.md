@@ -53,6 +53,7 @@ It's important to notice that we need to return the **indices** and not the valu
 We can solve this problem by searching for the number that, when added to `nums_i`, result in `target`. In other words, we are looking for two numbers that sum up to the target. The number we need to search for is called the complement:
 
 `nums_i + complement = target`
+
 `complement = target - nums_i`
 
 For each number `nums_i`, search for its complement in the remaining $n-1$ elements. However, if we perform this search for each element, we would end up with a quadratic algorithm because we would need to perform a linear search for each element in the remaining $n-1$ elements.
@@ -78,9 +79,11 @@ This means that the time complexity of the algorithm is linear, denoted as $O(n)
 ### Space Complexity
 The space complexity of an algorithm or a computer program is the amount of memory space required to solve an instance of the computational problem as a function of characteristics of the input. This includes the memory space used by its inputs, called **input space**, and any other (auxiliary) memory it uses during execution, which is called **auxiliary space**. 
 
-Space complexity = Input space + Auxiliary space
-Input space = O(n)
-Auxiliary space: hashtable + constant time = O(n) + O(1) 
+`Space complexity = Input space + Auxiliary space`
+
+`Input space = O(n)`
+
+`Auxiliary space: hashtable + constant time = O(n) + O(1) `
 
 $S(n) = O(n) + O(1)$
 
