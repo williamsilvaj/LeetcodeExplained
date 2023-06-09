@@ -1,4 +1,4 @@
-# Problem 1: Sum of All Numbers in an Array
+# Problem 1: Two Sum
 - [Problem Description]($problem-description)
 - [Solution Approach](#solution-approach)
 - [Algorithm in Pseudocode](#algorithm-in-pseudocode)
@@ -9,11 +9,54 @@
 
 ## Problem Description
 
-Given an array `nums` containing `n` real numbers, return the sum of all these numbers
+Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
+
+You may assume that each input would have **exactly one solution**, and you may not use the same element twice.
+
+You can return the answer in any order.
+
+ 
+```plaintext
+Example 1:
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Example 2:
+
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Example 3:
+
+Input: nums = [3,3], target = 6
+Output: [0,1]
+```
 
 ## Solution Approach
+### Quick explanation:
 
-To find the sum of all numbers in the array, we can use the built-in `sum()` function in Python. It takes an iterable as input and returns the sum of all elements in that iterable.
+For each number `nums_i` search for it's complement, `complement = nums_i - target`. To overcome the search in the $n-1$ remaining elements we can use a hashtable to map all values and after that search in $O(1)$.
+
+### Detailed explanation:
+
+We are given an array $nums$ containing $n$ numbers and a target numbers, such that `nums[i] + nums[j] = target` and we need to return $i$ and $j$. 
+
+It's pretty importante to notice that we need to return the **indices** and not the value itselt, it's a crucial information since if we sort, we would end up with a wrong indices answer. 
+
+#### Intuition
+
+We can solve that problem by for each `nums_i` element we search for the numbers that summed to $nums_i$ is equal to $target$, since we are looking for two numbers that sum up to the target. The number we need to search for is the complement: 
+
+`nums_i + complement = target`
+`complement = nums_i - target`
+
+Since we fixed the `nums_i` we can search for the `complement` in the $n-1$ elements. But notice, if we do it for each number we would end up in a quadratic algorithm since for each element we would need to perform a linear serch in the $n-1$ remaining elements. 
+
+Now that we undestand the problem, we can see that the main problem is that at each iteration we need to perform a linear search, how can we overcome that problem? Is there a better way to search that is not $O(n)? Yes! Hashtables! 
+
+We can map all elements `(key, value) -> (nums[j], j)` and for each `nums_i` we can look up if the complement exists in $O(1)$.
 
 ## Algorithm in Pseudocode
 
