@@ -1,0 +1,13 @@
+\begin{algorithm}
+\caption{Sum Algorithm}
+\begin{algorithmic}[1]
+\Procedure{Sum}{$a, b$}
+  \State $sum \gets a + b$
+  \State \textbf{return} $sum$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+The Sum Algorithm takes two integers, $a$ and $b$, as input and returns their sum. The algorithm simply adds the two numbers and stores the result in the variable $sum$. Finally, it returns the value of $sum$ as the output.
+
+The time complexity of this algorithm is constant or $O(1)$, as it performs a single addition operation and has no loops or recursion. Regardless of the input size, the algorithm executes in a constant amount of time, making it very efficient.
