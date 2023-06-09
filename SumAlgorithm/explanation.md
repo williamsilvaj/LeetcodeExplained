@@ -1,40 +1,137 @@
 # Problem 1: Sum of All Numbers in an Array
+- [Problem Description]($problem-description)
+- [Solution Approach](#solution-approach)
+- [Algorithm in Pseudocode](#algorithm-in-pseudocode)
+- [Algorithm Complexity Analysis](#algorithm-complexityanalysis)
+    - [Time Complexity](#time-complexity)
+    - [Space Complexity](#space-complexity)
+- [Implementation of the Algorithm](#implementation-of-the-algorithm)
 
 ## Problem Description
 
-$T(n) = c_1 + \sum_{i=3}^{n} c_2 = c_1 + \sum_{i=1}^{n-2} c_2 = c_1 + (n-2)c_2 = O(n)$
+Given an array `nums` containing `n` real numbers, return the sum of all these numbers
 
-
-$\frac{1}{23}$
-Given an array of integers, calculate the sum of all numbers in the array.
-
-## Approach
+## Solution Approach
 
 To find the sum of all numbers in the array, we can use the built-in `sum()` function in Python. It takes an iterable as input and returns the sum of all elements in that iterable.
 
-## Algorithm
+## Algorithm in Pseudocode
 
-1. Initialize a variable `total` to $0$.
-2. Iterate through each element `num` in the given array.
-    - Add `num` to `total`.
-3. Return the value of `total`.
+Note the pseucode start from 1 and not 0. 
+```plaintext
+Algorithm summation(nums, n):
+input: array `nums` containing all numbers and the size of the array `n`
+ouput: the sum of all numbers in `nums`
 
-## Time Complexity Analysis
+sum := 0
+for i = 1 until n do
+    sum := sum + nums[i]
+
+return sum
+```
+
+### Time Complexity
 
 The time complexity of this solution is O(n), where n is the number of elements in the array. This is because we need to iterate through each element once to calculate the sum.
 
-$T(n) = O(nlogn) + O(n) = O(nlogn)$
+$$T(n) = c_1 + \sum_{i=3}^{n} c_2 = c_1 + \sum_{i=1}^{n-2} c_2 = c_1 + (n-2)c_2 = O(n)$$
 
-The summation from 1 to \(n\) can be represented as:
-$
-\[
-\sum_{i=1}^{n} i
-\]
-$
-This represents the sum of all natural numbers from 1 to \(n\).
-\(\sum_{i=1}^{n} i\)
+### Space Complexity
+
+Space complexity = input space + auxiliary space
+
+Auxiliary Space: the extra space that is taken by an algorithm temporarily to finish its work
+
+Input Space: space taken by the input 
+
+$S(n) = O(n)$
+
+## Implementation of the Algorithm
+
+```python
+def sum_of_numbers(nums):
+    """
+    Calculate the sum of all numbers in the array.
+
+    Parameters:
+        nums (List[int]): The array of numbers.
+
+    Returns:
+        int: The sum of all numbers in the array.
+    """
+    return sum(nums)
+```
 
 
-## Example
+Note the pseucode start from 1 and not 0. 
+```plaintext
+Algorithm summation(nums, n):
+input: array `nums` containing all numbers and the size of the array `n`
+ouput: the sum of all numbers in `nums`
 
-**Input:**
+sum := 0
+for i = 1 until n do
+    sum := sum + nums[i]
+
+return sum
+```
+
+```java
+
+public class DutchFlag {
+
+	public static void main(String[] args) {
+
+		int[] A = { 2,0,1,0};
+
+		dutchFlagProblem(A);
+
+		for (int e : A) {
+			System.out.print(e + " ");
+		}
+
+	}
+
+	public static void dutchFlagProblem(int[] A) {
+
+		int low = 0;
+		int mid = 0;
+		int high = A.length - 1;
+
+		while (mid < high) {
+
+			while (A[low] == 0) {
+				low++;
+				mid++;
+			}
+
+			while (A[mid] == 1) {
+				mid++;
+			}
+
+			while (A[high] == 2) {
+				high--;
+			}
+
+			if (mid <= high) {
+
+				if (A[mid] == 0) {
+					swap(A, low, mid);
+				} else {
+					swap(A, mid, high);
+				}
+
+			}
+
+		}
+
+	}
+
+	private static void swap(int[] A, int i, int j) {
+		int temp = A[i];
+		A[i] = A[j];
+		A[j] = temp;
+	}
+
+}
+```
