@@ -17,14 +17,15 @@ To find the sum of all numbers in the array, we can use the built-in `sum()` fun
 
 ## Algorithm in Pseudocode
 
-Note the pseucode start from 1 and not 0. 
+Note: The following pseudocode represents an algorithmic solution. Please note that, in this pseudocode, array indices and loop iterations are 1-based unless otherwise specified.
+
 ```plaintext
 Algorithm summation(nums, n):
 input: array `nums` containing all numbers and the size of the array `n`
 ouput: the sum of all numbers in `nums`
 
 sum := 0
-for i = 1 until n do
+for i = 1 until n do # Iterate from 1 to n (inclusive)
     sum := sum + nums[i]
 
 return sum
